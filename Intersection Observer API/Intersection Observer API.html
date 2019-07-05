@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>IntersectionObserver demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
+</head>
+<style>
+    body,html {
+        margin: 0;
+        padding: 0;
+    }
+    .page {
+        position: relative;
+        top: 0;
+        height: 700px;
+    }
+    .red {
+        background: #f00;
+    }
+    .green {
+        background: #0f0;
+    }
+    .blue {
+        background: #00f;
+    }
+    p {
+        margin: 0;
+        padding: 20px;
+        height: 100px;
+        background: #f0f;
+    }
+    .con {
+        height: 400px;
+        overflow-y: scroll;
+    }
+</style>
+<body onload="load()">
+    <div class="con">
+        <div class="page red">
+            <p>我是第一页</p>
+        </div>
+        <div id="scrollArea" class="page green">
+            <p>我是第二页</p>
+        </div>
+        <div class="page blue">
+            <p class="listItem">我是第三页</p>
+        </div>
+    </div>
+    
+</body>
+<script>
+    function load() {
+        var options = {
+            rootMargin: '0px', 
+            threshold: 1.0
+        }
+
+        var observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                console.log(entry);
+            });
+        }, options);
+
+        let target = document.querySelector('.listItem');
+        observer.observe(target);
+    }
+    
+</script>
+</html>

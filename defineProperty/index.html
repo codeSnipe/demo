@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8" />
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <title>Object.defineProperty</title>
+    <body onload="load()">
+            Object.defineProperty的DEMO
+    </body>
+    <script>
+        function load() {
+            //创建对象属性
+            // var obj = {};
+            // obj.a = "a";
+            // obj['b'] = 'b';
+            // Object.defineProperty(obj, 'c', {
+            //     value: 'c'
+            // });
+            // console.log(Object.getOwnPropertyDescriptor(obj, 'c'));
+           
+            // enumerable
+            // var obj = {};
+            // obj.a = "a";
+            // obj['b'] = 'b';
+            // Object.defineProperty(obj, 'c', {
+            //     value: 'c',
+            //     enumerable: false
+            // });
+            // for(var i in obj) {
+            //     console.log(i);
+            // }
+            // console.log(Object.keys(obj));
+
+            // writable
+// var obj = {};
+// Object.defineProperty(obj, 'c', {
+//     value: 'c',
+//     writable: false
+// })
+// obj.c = "a";
+// obj["c"] = "b";
+// console.log(obj.c);
+// Object.defineProperty(obj, 'c', {
+//     value: 'd'
+// })
+
+//configurable 
+// var obj = {};
+// obj.a = "a";
+// obj['b'] = 'b';
+// Object.defineProperty(obj, 'c', {
+//     value: 'c',
+//     configurable: false
+// });
+// Object.defineProperty(obj, "c", {value : 'd'}); 
+// Object.defineProperty(obj, "c", {enumerable : true}); 
+
+// obj.c = 'new';
+// console.log(obj);
+// delete obj.c;
+// console.log(obj);
+
+            //get
+// var obj = {};
+// obj.a = "a";
+// Object.defineProperty(obj, 'a', {
+//     get: () => {
+//         return 'a 已经被我修改了';
+//     }
+// })
+// console.log(obj.a);
+
+            //set
+// var obj = {};
+// obj.a = "a";
+// var temp = null;
+// Object.defineProperty(obj, 'a', {
+//     set: (newValue) => {
+//         console.log('原有属性值：', newValue);
+//         temp = newValue + '1';
+//         console.log('经过set方法处理的属性值：', temp);
+//     }
+// })
+// obj.a = 'b';
+// var obj = {};
+// obj.a = "a";
+// var temp = null;
+// Object.defineProperty(obj, 'a', {
+//     value: "value值",
+//     // writable: false,
+//     set: (newValue) => {
+//         console.log('原有属性值：', newValue);
+//         temp = newValue + '1';
+//         console.log('经过set方法处理的属性值：', temp);
+//     }
+// })
+// obj.a = 'b';
+var obj = {};
+Object.defineProperty(obj, 'a', {
+    value: 'a'
+})
+console.log('a的descriptor:', Object.getOwnPropertyDescriptor(obj, 'a'))
+obj.b = 'b';
+console.log('b的descriptor:', Object.getOwnPropertyDescriptor(obj, 'b'))
+        }
+    </script>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Basic demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
+</head>
+<style>
+body {
+  font-family: Roboto, Arial, sans-serif;
+}
+
+.screen {
+  height: 100vh;
+}</style>
+<body onload="load()">
+    <div  id="demo1"  class="screen">
+      <h1>Basic demo</h1>
+      <a href="../test/1.html">Link 1</a>
+      我是第一个容器
+      <a href="../test/2.html">Link 2</a>
+    </div>
+    <div class="screen">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quos?
+      <a href="../test/3.html">Link 3</a>
+        <section id="stuff">
+          <a href="../test/main.css">CSS</a>
+        </section>
+    </div>
+    <div class="screen">
+      <a href="../test/4.html">Link 4</a>
+    </div>
+    <script src="./quicklink.umd.js"></script>
+    <script>
+        function load() {
+            let elm = document.getElementById('demo1');
+            quicklink({
+                urls: ['2.html','3.html', '4.js'],
+                priority: true
+            });
+            // Array.from(document.querySelectorAll('a'), link => {
+                // console.log(link, link.hostname, link.href);
+            // observer.observe(link);
+            // // If the anchor matches a permitted origin
+            // // ~> A `[]` or `true` means everything is allowed
+            // if (!allowed.length || allowed.includes(link.hostname)) {
+            // // If there are any filters, the link must not match any of them
+            // isIgnored(link, ignores) || toPrefetch.add(link.href);
+            // }
+        // });
+        // });
+        }
+    </script>
+</body>
+</html>
+
